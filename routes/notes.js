@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+require('dotenv').config();
 
 // 接続情報を設定
 const { MongoClient } = require("mongodb");
-const uri = "mongodb+srv://fupirokig_db_user:xxxxx@xxxxxx.jjn5ytq.mongodb.net/?appName=mongodb01";
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
 router.get('/', async (req, res) => {
